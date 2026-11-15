@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#14110e" />
+  <title>新科达 · 1.2 mm 超纤无溶剂合成革</title>
+  <meta name="description" content="鹤山新科达 1.2 毫米超纤无溶剂合成革。在页面上滴水、擦干、弯折，看这张革怎么把水挡在表面。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2314110e' width='32' height='32'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%236f3d28'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/swatch.css" />
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#swatch">新科达</a>
+    <span class="brand-en">XINKEDA</span>
+    <span class="where">鹤山 · 合成革</span>
+  </header>
+
+  <main>
+    <section class="stage" aria-labelledby="product-name">
+      <p class="eyebrow">一款革 · 样面</p>
+      <div class="swatch" id="swatch" tabindex="0" aria-label="皮革样面。点击皮面滴一滴水。">
+        <canvas id="leather" aria-hidden="true"></canvas>
+        <canvas id="fabric" aria-hidden="true"></canvas>
+        <img id="photo" alt="上传的皮革实拍" />
+        <svg class="micro" aria-hidden="true">
+          <filter id="grain-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#grain-noise)" />
+        </svg>
+        <div class="sheen" aria-hidden="true"></div>
+        <div class="crease" aria-hidden="true"></div>
+        <div class="water" id="water" aria-hidden="true"></div>
+        <div class="cloth" id="cloth" aria-hidden="true"></div>
+        <p class="flag" id="flag">对照织物，不是这张革</p>
+        <p class="photo-note" id="photoNote">实拍可拖到皮面上</p>
+      </div>
+
+      <div class="controls" role="group" aria-label="看这张革的表现">
+        <button type="button" data-act="drop" aria-keyshortcuts="1">滴水</button>
+        <button type="button" data-act="wipe" aria-keyshortcuts="2">擦干</button>
+        <button type="button" data-act="bend" aria-keyshortcuts="3">弯折</button>
+        <button type="button" data-act="compare" aria-keyshortcuts="4" aria-pressed="false">吸水对照</button>
+      </div>
+      <p class="status" id="status" role="status">在皮面上点一下。</p>
+      <p class="shortcuts">键盘 1 滴水 · 2 擦干 · 3 弯折 · 4 对照</p>
+    </section>
+
+    <aside class="sheet">
+      <p class="measure"><b>1.2</b><span>mm</span></p>
+      <h1 id="product-name">超纤无溶剂合成革</h1>
+      <p class="lede">沙发、家具和汽车坐垫用的一张革。水停在面上，抹一下就走。</p>
+
+      <ul class="props">
+        <li data-live="drop">
+          <span>不渗水</span>
+          <small>水珠鼓着，不把皮面染深</small>
+        </li>
+        <li data-live="wipe">
+          <span>一抹就干</span>
+          <small>擦过之后还是原来的颜色</small>
+        </li>
+        <li data-live="bend">
+          <span>弯得回去</span>
+          <small>按下，再弹回来</small>
+        </li>
+      </ul>
+
+      <figure class="cut-wrap">
+        <svg class="cut" viewBox="0 0 280 150" role="img" aria-label="剖面示意：水珠停在面层上，没有渗进基布">
+          <text class="cut-kicker" x="0" y="16">剖面示意</text>
+          <rect class="cut-base" x="0" y="86" width="168" height="36" rx="2" />
+          <rect class="cut-coat" x="0" y="64" width="168" height="22" />
+          <text class="cut-label" x="180" y="80">面层</text>
+          <text class="cut-label" x="180" y="110">基布</text>
+          <g class="cut-bead">
+            <ellipse cx="78" cy="48" rx="13" ry="10" />
+            <ellipse class="glint" cx="73" cy="44" rx="4" ry="2.5" />
+          </g>
+          <ellipse class="cut-stain" cx="78" cy="72" rx="22" ry="7" />
+        </svg>
+        <figcaption id="cutCaption">水在面层上。这是示意，不是显微镜照片。</figcaption>
+      </figure>
+
+      <div class="photo-row">
+        <label class="file">
+          放入实拍
+          <input id="file" type="file" accept="image/*" />
+        </label>
+        <p>或把照片拖到左边。之后放到 <code>assets/leather.jpg</code>，打开页面就会用它。</p>
+      </div>
+
+      <footer class="colophon">
+        <p>鹤山市新科达企业有限公司</p>
+        <p>广东省鹤山市龙口镇北环路8号之一</p>
+        <p><a href="tel:+867508763888">0750-8763888</a> · <a href="mailto:xkdpu@163.com">xkdpu@163.com</a></p>
+        <p class="fine">交互是演示。厚度、手感和环保指标以实物色卡和检测报告为准。</p>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="js/swatch.js"></script>
+</body>
+</html>
